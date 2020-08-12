@@ -7,8 +7,14 @@
 }
 
 html, body {
-  height: 100%;
-  background-color: black;
+  color: #000000;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  html, body {
+    font-size: 16px;
+  }
 }
 
 #__next {
@@ -38,7 +44,352 @@ html, body {
           align-items: center;
 }
 
+a, a:visited, a:active, a:hover {
+  color: #4680C1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.error {
+  background-color: #ffe7e6;
+}
+
+.success {
+  background-color: #E8F0FE;
+}
+
+.noticeMessage {
+  margin-bottom: 24px;
+  font-size: 0.85em;
+}
+
+#root {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #E5E5E5;
+}
+
+#root main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#root main > div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  #root main > div {
+    max-width: 600px;
+  }
+}
+
+.hiddenDisplay {
+  display: none !important;
+}
+
+.hidden {
+  z-index: -999 !important;
+  -webkit-transform: translate(0, -70px) !important;
+          transform: translate(0, -70px) !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+.modal {
+  z-index: 999 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal .modalOverlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+}
+
+.modal .modalContent {
+  height: 20%;
+  width: 33%;
+  background: white;
+  z-index: 999;
+}
+
+.disabledInput {
+  background-color: #DDE9FD !important;
+  color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #DDE9FD inset !important;
+          box-shadow: 0 0 0px 1000px #DDE9FD inset !important;
+}
+
+.disabledButton {
+  background-color: #173353 !important;
+  color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #173353 inset !important;
+          box-shadow: 0 0 0px 1000px #173353 inset !important;
+}
+
+.clickable {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.clickable:hover {
+  opacity: 0.7;
+}
+
+.formWrap {
+  width: 50%;
+  max-width: 570px;
+  height: 33%;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#logo {
+  margin: 0 auto 35px auto;
+  width: 340px;
+  height: 91px;
+  /** background-image: url("../assets/logo/logo.png") **/
+  background-size: cover;
+}
+
+#smallLogo {
+  width: 204px;
+  height: 54px;
+  margin: 0 auto;
+  /** background-image: url("../assets/logo/logo.png") **/
+  background-size: cover;
+}
+
+form {
+  width: calc(100% - 16px);
+  padding-top: 24px;
+  margin: 0 8px 0 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  form {
+    width: calc(100% - 32px);
+    margin: 0 16px 0 16px;
+  }
+}
+
+form .inputWrap {
+  position: relative;
+  width: calc(100% - 16px);
+  margin-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #000000;
+}
+
+form .inputWrap label {
+  position: relative;
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+form .inputWrap > div {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 0 auto;
+  height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+form .inputWrap > div .icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  margin: 10px 10px 10px 10px;
+}
+
+form .inputWrap > div input, form .inputWrap > div textarea {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  width: 0;
+  height: auto;
+  border: solid 1px #707070;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  form .inputWrap > div input, form .inputWrap > div textarea {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+  }
+}
+
+form .inputWrap > div input[type=button], form .inputWrap > div input[type=submit], form .inputWrap > div textarea[type=button], form .inputWrap > div textarea[type=submit] {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+@media screen and (min-width: 768px) {
+  form .inputWrap > div input[type=button], form .inputWrap > div input[type=submit], form .inputWrap > div textarea[type=button], form .inputWrap > div textarea[type=submit] {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+form .inputWrap > div input.hasIconInput, form .inputWrap > div textarea.hasIconInput {
+  padding: 10px 10px 10px 60px;
+}
+
+form .inputWrap .message {
+  margin-top: 4px;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+form .fileInputWrap {
+  height: 128px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form input[type=button], form input[type=submit], form button[type=submit] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #4680C1;
+  color: #ffffff;
+  border-radius: 15px;
+  width: 30%;
+  height: 64px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  font-size: 1.2em;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  form input[type=button], form input[type=submit], form button[type=submit] {
+    font-size: 1em;
+    padding: 20px;
+  }
+}
+
+form input[type=button][type=button], form input[type=submit][type=button], form button[type=submit][type=button] {
+  margin-left: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  form input[type=button][type=button], form input[type=submit][type=button], form button[type=submit][type=button] {
+    margin-left: 24px;
+  }
+}
+
+form input[type=button][type=submit], form input[type=submit][type=submit], form button[type=submit][type=submit] {
+  margin: 30px auto 0 auto;
+}
+
+form input[type=checkbox] {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+form .linkWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 93%;
+}
+
 /** footer
-    height: 100px
-    background-color: red **/
+ height: 100px
+ background-color: red **/
 /*# sourceMappingURL=common.css.map */
