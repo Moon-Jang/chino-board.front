@@ -1,5 +1,4 @@
 import { GetStaticProps, GetStaticPaths } from "next"
-
 import { User } from "../../interfaces"
 import { sampleUserData } from "../../utils/sample-data"
 import Layout from "../../components/Layout_old"
@@ -38,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const paths = sampleUserData.map((user) => ({
         params: { id: user.id.toString() },
     }))
-
+    console.log(paths)
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
     return { paths, fallback: false }

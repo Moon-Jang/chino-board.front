@@ -1,11 +1,10 @@
 import axios from "axios"
 
-const AUTH_TOKEN = localStorage.jwt
 const API = axios.create({
     baseURL: "http://127.0.0.1:3000/prod",
     timeout: 10000,
     headers: {
-        Authorization: "bearer " + AUTH_TOKEN,
+        // Authorization: "bearer " + AUTH_TOKEN,
         /* 'Access-Control-Allow-Origin': '*',
         'Access-Control-Aloow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
         'Access-Control-Max-Age': 3600,
