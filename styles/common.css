@@ -17,6 +17,201 @@ html, body {
   }
 }
 
+.titleWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100px;
+}
+
+.titleWrap h2 {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.titleWrap p {
+  color: gray;
+}
+
+.boardPage .mainWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 16px;
+  -webkit-box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.63);
+          box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.63);
+  background-color: #ffffff;
+}
+
+.boardPage .mainWrap .boardUtils {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.boardPage .mainWrap .boardWrap .boardHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.boardPage .mainWrap .boardWrap .boardHeader div {
+  padding-left: 10px;
+}
+
+.boardPage .mainWrap .boardWrap .boardHeader .number {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.boardPage .mainWrap .boardWrap .boardHeader .title {
+  -webkit-box-flex: 9;
+      -ms-flex: 9;
+          flex: 9;
+}
+
+.boardPage .mainWrap .boardWrap .boardHeader .writer {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.boardPage .mainWrap .boardWrap .boardHeader .modifyDate {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.boardPage .mainWrap .boardWrap .boardContents {
+  margin-bottom: 30px;
+}
+
+.boardPage .mainWrap .boardWrap .boardContents .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.boardPage .mainWrap .boardWrap .boardContents .row div {
+  padding-left: 10px;
+}
+
+.boardPage .mainWrap .boardWrap .boardContents .row .number {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.boardPage .mainWrap .boardWrap .boardContents .row .title {
+  -webkit-box-flex: 9;
+      -ms-flex: 9;
+          flex: 9;
+}
+
+.boardPage .mainWrap .boardWrap .boardContents .row .writer {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.boardPage .mainWrap .boardWrap .boardContents .row .modifyDate {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.boardPage .mainWrap .boardWrap .boardContents .row:hover {
+  background-color: red;
+}
+
+.boardPage .mainWrap .boardFooter {
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.boardPage .mainWrap .boardFooter .boardNavgation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.boardPage .mainWrap .boardFooter .boardNavgation button {
+  margin: 0 2px;
+}
+
+.boardPage .mainWrap .boardFooter .boardNavgation ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+}
+
+.boardPage .mainWrap .boardFooter .boardNavgation ul li {
+  width: 36px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.boardPage .mainWrap .boardFooter .boardNavgation ul li:hover {
+  background-color: gray;
+}
+
+.boardPage .mainWrap select {
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.boardPage .mainWrap button {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+  padding: 5px;
+  cursor: pointer;
+}
+
 #__next {
   min-height: 100vh;
   display: -webkit-box;
@@ -29,7 +224,7 @@ html, body {
   background-color: #E5E5E5;
 }
 
-#__next main {
+#__next .LoginLayout {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;

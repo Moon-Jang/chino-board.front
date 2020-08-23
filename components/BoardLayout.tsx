@@ -6,10 +6,7 @@ type Props = {
     title?: string
 }
 
-const LoginLayout = ({
-    children,
-    title = "This is the default title",
-}: Props) => (
+const LoginLayout = ({ children, title = "default title" }: Props) => (
     <>
         <Head>
             <title>{title}</title>
@@ -19,8 +16,7 @@ const LoginLayout = ({
                 content="initial-scale=1.0, width=device-width"
             />
         </Head>
-        <main className="LoginLayout">{children}</main>
-        <footer></footer>
+        {children}
     </>
 )
 

@@ -23,9 +23,7 @@ const TestPage = () => {
         if (response.status !== 200) {
             alert(response.data)
         }
-        console.log(response)
-        console.log(inputs)
-        console.log("login")
+        localStorage.jwt = response.data
         Router.push("/users/register")
     }
 

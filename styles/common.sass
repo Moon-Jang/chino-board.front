@@ -29,12 +29,104 @@ html, body
     @include desktop
         font-size: 16px
 
+.titleWrap
+    max-width: 1200px
+    margin: 0 auto
+    padding: 0 16px
+    height: 100px
+    h2
+        font-size: 20px
+        line-height: 32px
+    p
+        color: gray
+
+.boardPage    
+    .mainWrap
+        max-width: 1200px
+        margin: 0 auto
+        padding: 16px 16px
+        box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.63)
+        background-color: $white
+        .boardUtils
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            margin-bottom: 10px
+        .boardWrap
+            .boardHeader
+                display: flex
+                align-items: center
+                height: 50px
+                font-weight: bold
+                border: 1px solid rgba(0, 0, 0, 0.1)
+                border-left: 0px
+                border-right: 0px
+                div
+                    padding-left: 10px
+                .number
+                    flex: 1
+                .title
+                    flex: 9
+                .writer
+                    flex: 2
+                .modifyDate
+                    flex: 2
+            .boardContents
+                margin-bottom: 30px
+                .row
+                    display: flex
+                    align-items: center
+                    cursor: pointer
+                    height: 60px
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+                    div
+                        padding-left: 10px
+                    .number
+                        flex: 1
+                    .title
+                        flex: 9
+                    .writer
+                        flex: 2
+                    .modifyDate
+                        flex: 2
+                .row:hover
+                    background-color: red
+        .boardFooter
+            height: 36px
+            display: flex
+            flex-direction: row
+            justify-content: center
+            .boardNavgation
+                display: flex
+                button
+                    margin: 0 2px
+                ul
+                    display: flex
+                    flex-direction: row
+                    list-style: none
+                    li
+                        width: 36px
+                        height: 36px
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                    li:hover
+                        background-color: gray
+        select
+            padding-bottom: 5px
+            cursor: pointer 
+        button
+            background-color: $white
+            border-color: rgba(0, 0, 0, 0.1)
+            border-width: 1px
+            padding: 5px
+            cursor: pointer
 #__next
     min-height: 100vh
     display: flex
     flex-direction: column
     background-color: #E5E5E5
-    main
+    .LoginLayout
         flex: 1
         display: flex
         justify-content: center
