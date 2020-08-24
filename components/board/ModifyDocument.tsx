@@ -1,22 +1,24 @@
 import Router from "next/router"
 import { useState } from "react"
-import { API_createDocument } from "../../apis/board"
+import { API_updateDocument } from "../../apis/board"
 
-const CreateDocument = (): JSX.Element => {
+const ModifyDocument = (props): JSX.Element => {
     const [inputs, setInputs] = useState({ title: "", contents: "" })
     const { title, contents } = inputs
+    console.log("hashsh", props.hash)
     const handleChange = (e) => {
         const target = e.target
         const { value, name } = target
         setInputs({ ...inputs, [name]: value })
     }
 
-    const write = async () => {
+    const modify = async () => {
         if (!title || !contents) {
             alert("제목과 내용을 작성해주세요")
             return
         }
-        const response = await API_createDocument({
+        const response = await API_updateDocument({
+            hash: props.hash,
             title,
             contents,
             AUTH_TOKEN: localStorage.jwt,
@@ -57,11 +59,11 @@ const CreateDocument = (): JSX.Element => {
                     onClick={() => Router.push("/board")}>
                     이전
                 </button>
-                <button className="clickable" onClick={write}>
-                    작성
+                <button className="clickable" onClick={modify}>
+                    수정
                 </button>
             </div>
         </div>
     )
 }
-export default CreateDocument
+export default ModifyDocument

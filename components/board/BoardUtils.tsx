@@ -3,12 +3,10 @@ import { useContext } from "react"
 import Router from "next/router"
 
 const BoardUtils = (): JSX.Element => {
-    const { totalCnt, listCnt, curPage, contents, setStore } = useContext(
-        BoardContext
-    )
+    const { totalCnt, listCnt, contents, setStore } = useContext(BoardContext)
     const handleChange = (e) => {
         const target = e.target
-        setStore({ totalCnt, listCnt: target.value, curPage, contents })
+        setStore({ totalCnt, listCnt: target.value, curPage: 1, contents })
     }
     return (
         <div className="boardUtils">

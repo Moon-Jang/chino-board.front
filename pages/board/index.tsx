@@ -4,7 +4,7 @@ import BoardUtils from "../../components/board/BoardUtils"
 import BoardContext from "../../components/board/BoardContext"
 import { useState, useEffect } from "react"
 import { API_readBoard, API_readBoardCnt } from "../../apis/board"
-
+import { getCookie } from "../../utils/utils"
 //const jwt = localStorage.jwt
 const BoardPage = (props) => {
     const error = props.error
@@ -33,7 +33,7 @@ const BoardPage = (props) => {
 
     //console.log(contents)
     return (
-        <BoardLayout>
+        <BoardLayout title="board - chinoBoard">
             <header>
                 <div className="titleWrap">
                     <h2>게시판 페이지</h2>
@@ -59,11 +59,9 @@ const BoardPage = (props) => {
         </BoardLayout>
     )
 }
-
-export const getStaticProps = async () => {
-    const AUTH_TOKEN =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvYnk4NTAyQG5hdmVyLmNvbSIsImlkeCI6NiwiYXV0aCI6MSwiaWF0IjoxNTk4MTY4NDE0LCJleHAiOjE1OTgyMTE2MTR9.wggAXyKVO_bXa7cEaBTAKKRzM9HWpm2i7x1StTOVoU4"
-
+export async function getServerSideProps(context) {
+    const jwt = getCookie(context.req.headers.cookie, "jwt")
+    const AUTH_TOKEN = jwt
     const response = await API_readBoard({
         curPage: 1,
         listCnt: 10,
@@ -73,7 +71,7 @@ export const getStaticProps = async () => {
     if (response.status !== 200 || !response.status) {
         return {
             props: {
-                error: response.data,
+                error: response.data.error,
                 contents: [],
             },
         }
@@ -86,5 +84,31 @@ export const getStaticProps = async () => {
         },
     }
 }
+/* export const getStaticProps = async () => {
+    const AUTH_TOKEN =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvYnk4NTAyQG5hdmVyLmNvbSIsImlkeCI6NiwiYXV0aCI6MSwiaWF0IjoxNTk4MTY4NDE0LCJleHAiOjE1OTgyMTE2MTR9.wggAXyKVO_bXa7cEaBTAKKRzM9HWpm2i7x1StTOVoU4"
+
+    const response = await API_readBoard({
+        curPage: 1,
+        listCnt: 10,
+        AUTH_TOKEN,
+    })
+    const response2 = await API_readBoardCnt({ AUTH_TOKEN })
+    if (response.status !== 200 || !response.status) {
+        return {
+            props: {
+                error: response.data.error,
+                contents: [],
+            },
+        }
+    }
+
+    return {
+        props: {
+            contents: response.data.result,
+            totalCnt: response2.data.result,
+        },
+    }
+} */
 
 export default BoardPage

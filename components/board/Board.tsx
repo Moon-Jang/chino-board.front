@@ -30,13 +30,13 @@ interface content {
     mod_date: string
 }
 const BoardContents = (): JSX.Element => {
-    const { contents } = useContext(BoardContext)
+    const { contents, curPage, listCnt } = useContext(BoardContext)
     const renderContents = (): JSX.Element[] => {
         return contents.map((content: content, idx: number) => (
             <Content
                 key={content.idx}
                 hash={content.hash}
-                number={idx + 1}
+                number={(curPage - 1) * listCnt + idx + 1}
                 title={content.title}
                 writer={content.writer}
                 modifyDate={content.mod_date}
@@ -55,8 +55,8 @@ interface contentProps {
 }
 const Content = (props: contentProps): JSX.Element => {
     const movePage = (e) => {
-        //e.stoppropagation()
-        Router.push("board/" + props.hash)
+        e.stopPropagation()
+        Router.push("board/document?hash=" + props.hash)
     }
     return (
         <div className="row" onClick={movePage}>
@@ -73,12 +73,10 @@ const BoardFooter = (): JSX.Element => {
         BoardContext
     )
     const totalPage = Math.trunc(totalCnt / listCnt)
-    console.log(totalCnt, listCnt, curPage)
 
     const movePage = (e) => {
         const target = e.target
         const page = target.getAttribute("data-idx")
-        console.log(page)
         setStore({ listCnt, totalCnt, curPage: page * 1, contents })
     }
     const moveFirstPage = () => {

@@ -90,7 +90,7 @@ const Register = (): JSX.Element => {
         setInputs({ ...inputs, [name]: value })
     }
     return (
-        <Layout title="Test | Next.js + TypeScript Example">
+        <Layout title="Register - chinoBoard">
             <div className="formWrap">
                 <h1>RegisterPage</h1>
                 <form onSubmit={register}>

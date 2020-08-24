@@ -2,16 +2,17 @@ import { AxiosResponse } from "axios"
 import API from "../setting"
 
 type payload = {
+    hash: string
     title: string
     contents: string
     AUTH_TOKEN: string
 }
-const API_createDocument = async (payload: payload): Promise<AxiosResponse> => {
+const API_updateDocument = async (payload: payload): Promise<AxiosResponse> => {
     let response
-    const { title, contents } = payload
+    const { title, contents, hash } = payload
     try {
-        response = await API.post(
-            `/board/documents`,
+        response = await API.put(
+            `/board/documents/${hash}`,
             {
                 title,
                 contents,
@@ -29,4 +30,4 @@ const API_createDocument = async (payload: payload): Promise<AxiosResponse> => {
     }
 }
 
-export default API_createDocument
+export default API_updateDocument

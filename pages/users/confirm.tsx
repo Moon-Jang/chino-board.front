@@ -28,7 +28,7 @@ const confirm = (): JSX.Element => {
         router.push("/test")
     }
     return (
-        <Layout title="Test | Next.js + TypeScript Example">
+        <Layout title="Confirm - chinoBoard">
             <div className="formWrap">
                 <h1>ConfirmPage</h1>
                 <form onSubmit={confirm}>

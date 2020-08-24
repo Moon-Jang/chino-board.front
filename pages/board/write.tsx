@@ -1,9 +1,9 @@
-import Document from "../../components/board/createDocument"
+import CreateDocument from "../../components/board/CreateDocument"
 import BoardLayout from "../../components/BoardLayout"
 
 const WritePage = () => {
     return (
-        <BoardLayout>
+        <BoardLayout title="write document - chinoBoard">
             <header>
                 <div className="titleWrap">
                     <h2>글작성 페이지</h2>
@@ -11,7 +11,7 @@ const WritePage = () => {
                 </div>
             </header>
             <main className="boardPage">
-                <Document />
+                <CreateDocument />
             </main>
         </BoardLayout>
     )
