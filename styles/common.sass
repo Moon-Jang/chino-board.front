@@ -1,23 +1,382 @@
+$mobile: 768px
+$visible: 1232px
+
+$point: #4680C1
+$deepPoint: #396EAA
+$blurPoint: #849EBC
+$brightPoint: #DDE9FD
+$onClick: #173353
+$background: #E5E5E5
+$white: #ffffff
+$black: #000000
+$border: solid 1px #707070
+$error: #ffe7e6
+$success: #E8F0FE
+
+@mixin desktop
+    @media screen and (min-width: #{$mobile})
+        @content
+
 *
     margin: 0
     padding: 0
     transition: all 0.4s cubic-bezier(.5, 1.8, .5, .8)
     font-size: 1em
 
-html,body
-    height: 100%
-    background-color: black
+html, body
+    color: $black
+    font-size: 14px
+    @include desktop
+        font-size: 16px
+
+.titleWrap
+    max-width: 1200px
+    margin: 0 auto
+    padding: 0 16px
+    height: 100px
+    h2
+        font-size: 20px
+        line-height: 32px
+    p
+        color: gray
+
+.boardPage    
+    .mainWrap
+        max-width: 1200px
+        margin: 0 auto
+        padding: 16px 16px
+        box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.63)
+        background-color: $white
+        .boardUtils
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            margin-bottom: 10px
+        .boardWrap
+            .boardHeader
+                display: flex
+                align-items: center
+                height: 50px
+                font-weight: bold
+                border: 1px solid rgba(0, 0, 0, 0.1)
+                border-left: 0px
+                border-right: 0px
+                div
+                    padding-left: 10px
+                .number
+                    flex: 1
+                .title
+                    flex: 9
+                .writer
+                    flex: 2
+                .modifyDate
+                    flex: 2
+            .boardContents
+                margin-bottom: 30px
+                .row
+                    display: flex
+                    align-items: center
+                    cursor: pointer
+                    height: 60px
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+                    div
+                        padding-left: 10px
+                    .number
+                        flex: 1
+                    .title
+                        flex: 9
+                    .writer
+                        flex: 2
+                    .modifyDate
+                        flex: 2
+                .row:hover
+                    background-color: #f0f0f0da
+        .boardFooter
+            height: 36px
+            display: flex
+            flex-direction: row
+            justify-content: center
+            .boardNavgation
+                display: flex
+                button
+                    margin: 0 2px
+                ul
+                    display: flex
+                    flex-direction: row
+                    list-style: none
+                    li
+                        width: 36px
+                        height: 36px
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                    li:hover
+                        background-color: gray
+        select
+            padding-bottom: 5px
+            cursor: pointer 
+        button
+            background-color: $white
+            border-color: rgba(0, 0, 0, 0.1)
+            border-width: 1px
+            padding: 5px
+            cursor: pointer
+    .documentWrap
+        max-width: 1200px
+        margin: 0 auto
+        padding: 16px 16px
+        box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.63)
+        background-color: $white
+        .documentTitle
+            display: flex
+            align-items: center
+            height: 50px
+            font-weight: bold
+            border: 1px solid rgba(0, 0, 0, 0.1)
+            border-left: 0px
+            border-right: 0px
+            div
+                padding-left: 20px
+            .number
+                flex: 1
+            .title
+                flex: 11
+        .documentContents
+            height: 500px
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+            padding: 20px
+            white-space: pre-line
+            textarea
+                width: 100%
+                height: 100%
+        .buttonWrap
+            height: 100px
+            display: flex
+            flex-direction: row
+            justify-content: flex-end
+            align-items: center
+            button
+                height: 40px
+                background-color: $white
+                border-color: rgba(0, 0, 0, 0.1)
+                border-width: 1px
+                padding: 8px
+                margin: 0 4px
+
 #__next
     min-height: 100vh
     display: flex
     flex-direction: column
     background-color: #E5E5E5
-    main
+    .LoginLayout
         flex: 1
         display: flex
         justify-content: center
         align-items: center
 
+a, a:visited, a:active, a:hover
+    color: $point
+    text-decoration: none
+    cursor: pointer
+
+.error
+    background-color: $error
+
+.success
+    background-color: $success
+
+.noticeMessage
+    margin-bottom: 24px
+    font-size: 0.85em
+
+// It is not common style.
+// But I write this here for develope comportant.
+
+#root
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    background-color: $background
+    main
+        display: flex
+        justify-content: center
+        align-items: center
+        > div
+            width: 100%
+            margin: 0 auto
+            @include desktop
+                max-width: 600px
+
+.hiddenDisplay
+    display: none !important
+
+.hidden
+    z-index: -999 !important
+    transform: translate(0, -70px) !important
+    opacity: 0 !important
+    height: 0 !important
+    padding: 0 !important
+    margin: 0 auto !important
+
+.modal
+    z-index: 999 !important
+    position: fixed
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    .modalOverlay
+        width: 100%
+        height: 100%
+        background-color: rgba(0,0,0,0.6)
+        position: fixed
+    .modalContent
+        height: 20%
+        width: 33%
+        background: white
+        z-index: 999
+   
+.disabledInput
+    background-color: $brightPoint !important
+    color: $white !important
+    box-shadow: 0 0 0px 1000px $brightPoint inset !important
+
+.disabledButton
+    background-color: $onClick !important
+    color: $white !important
+    box-shadow: 0 0 0px 1000px $onClick inset !important
+
+.clickable
+    cursor: pointer
+    opacity: 1
+    &:hover
+        opacity: 0.7
+.formWrap
+    width: 50%
+    max-width: 570px
+    height: 33%
+    background-color: $white
+    border: 1px solid
+    border-color: rgba(0,0,0,0.5)
+    padding: 20px
+    border-radius: 10px
+#logo
+    margin: 0 auto 35px auto
+    width: 340px
+    height: 91px
+    /** background-image: url("../assets/logo/logo.png") **/
+    background-size: cover
+
+#smallLogo
+    width: 204px
+    height: 54px
+    margin: 0 auto
+    /** background-image: url("../assets/logo/logo.png") **/
+    background-size: cover
+
+form
+    width: calc(100% - 16px)
+    padding-top: 24px
+    margin: 0 8px 0 8px
+    display: flex
+    flex-direction: column
+    align-items: center
+    @include desktop
+        width: calc(100% - 32px)
+        margin: 0 16px 0 16px
+    .inputWrap
+        position: relative
+        width: calc(100% - 16px)
+        margin-bottom: 24px
+        display: flex
+        flex-direction: column
+        color: $black
+        label
+            position: relative
+            font-size: 1em
+            font-weight: bold
+            margin-bottom: 8px
+            margin-left: 12px
+        > div
+            position: relative
+            width: 100%
+            margin: 0 auto 0 auto
+            height: 64px
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            align-content: center
+            .icon
+                position: absolute
+                top: 10px
+                left: 10px
+                width: 24px
+                height: 24px
+                background-size: cover
+                margin: 10px 10px 10px 10px
+            input, textarea
+                flex: 3
+                width: 0
+                height: auto
+                border: $border
+                border-radius: 15px
+                font-weight: bold
+                @include desktop
+                    flex: 2
+                &[type=button], &[type=submit]
+                    flex: 2
+                    @include desktop
+                        flex: 1
+                &.hasIconInput
+                    padding: 10px 10px 10px 60px
+        .message
+            margin-top: 4px
+            font-size: 0.7em
+            font-weight: bold
+    .fileInputWrap
+        height: 128px
+        flex-direction: column
+        justify-content: center
+    textarea
+        resize: vertical
+    input[type=button], input[type=submit], button[type=submit]
+        display: flex
+        justify-content: center
+        align-items: center
+        background-color: $point
+        color: $white
+        border-radius: 15px
+        width: 30%
+        height: 64px
+        padding: 10px
+        text-align: center
+        font-weight: bold
+        border: none
+        font-size: 1.2em
+        color: $white
+        @include desktop
+            font-size: 1em
+            padding: 20px
+        &[type=button]
+            margin-left: 12px
+            @include desktop
+                margin-left: 24px
+        &[type=submit]
+            margin: 30px auto 0 auto
+    input[type=checkbox]
+        width: 24px
+        height: 24px
+        margin-right: 12px
+        background-color: $white
+        border: none
+        cursor: pointer
+    .linkWrap
+        display: flex
+        justify-content: space-between
+        width: 93%
 /** footer
-    height: 100px
-    background-color: red **/
+ height: 100px
+ background-color: red **/
